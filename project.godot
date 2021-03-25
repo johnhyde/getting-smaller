@@ -1,0 +1,100 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Spatial",
+"class": "Level",
+"language": "GDScript",
+"path": "res://models/Level.gd"
+}, {
+"base": "Resource",
+"class": "LevelDef",
+"language": "GDScript",
+"path": "res://level_def.gd"
+} ]
+_global_script_class_icons={
+"Level": "",
+"LevelDef": ""
+}
+
+[application]
+
+config/name="Getting Smaller"
+run/main_scene="res://main.tscn"
+config/icon="res://icon.png"
+
+[display]
+
+window/size/width=3072
+window/size/height=1800
+window/size/always_on_top=true
+window/dpi/allow_hidpi=true
+
+[input]
+
+get_smaller={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":39,"unicode":0,"echo":false,"script":null)
+ ]
+}
+get_bigger={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":46,"unicode":0,"echo":false,"script":null)
+ ]
+}
+go_forward={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":44,"unicode":0,"echo":false,"script":null)
+ ]
+}
+go_backward={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":79,"unicode":0,"echo":false,"script":null)
+ ]
+}
+strafe_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+ ]
+}
+strafe_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"unicode":0,"echo":false,"script":null)
+ ]
+}
+go_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"unicode":0,"echo":false,"script":null)
+ ]
+}
+go_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
+ ]
+}
+spawn={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777221,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[physics]
+
+3d/physics_engine="Bullet"
+3d/active_soft_world=false
+3d/default_gravity=0.0
+3d/smooth_trimesh_collision=true
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
+vram_compression/import_etc2=false
+environment/default_environment="res://default_env.tres"

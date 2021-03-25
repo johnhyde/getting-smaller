@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://GimbalCamera.gd" type="Script" id=1]
+
+[sub_resource type="SphereShape" id=1]
+radius = 0.320873
+
+[sub_resource type="SphereShape" id=2]
+radius = 1.18411
+
+[sub_resource type="SphereShape" id=3]
+radius = 0.398894
+
+[sub_resource type="CubeMesh" id=4]
+size = Vector3( 1, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=5]
+
+[node name="GimbalCamera" type="KinematicBody"]
+script = ExtResource( 1 )
+
+[node name="Body" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="ComfortZone" type="Area" parent="."]
+
+[node name="Collision" type="CollisionShape" parent="ComfortZone"]
+shape = SubResource( 2 )
+
+[node name="OuterGimbal" type="Spatial" parent="."]
+
+[node name="InnerGimbal" type="Spatial" parent="OuterGimbal"]
+
+[node name="Whiskers" type="Area" parent="OuterGimbal/InnerGimbal"]
+
+[node name="Collision" type="CollisionShape" parent="OuterGimbal/InnerGimbal/Whiskers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.323819 )
+shape = SubResource( 3 )
+
+[node name="Camera" type="Camera" parent="OuterGimbal/InnerGimbal"]
+current = true
+far = 8192.0
+
+[node name="MeshInstance" type="MeshInstance" parent="OuterGimbal/InnerGimbal"]
+transform = Transform( 0.00853553, -0.00146447, 0.005, 0.005, 0.005, -0.00707107, -0.00146447, 0.00853554, 0.005, 0, 0, 0.297459 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="StayFocused" type="MeshInstance" parent="OuterGimbal/InnerGimbal"]
+transform = Transform( 0.00853553, -0.00146447, 0.005, 0.005, 0.005, -0.00707107, -0.00146447, 0.00853554, 0.005, 0, 0, -0.2993 )
+visible = false
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="OmniLight" type="OmniLight" parent="OuterGimbal/InnerGimbal"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144, 0 )
+visible = false
+shadow_enabled = true
+shadow_color = Color( 0.0980392, 0.0117647, 0.0666667, 1 )
+shadow_bias = 0.09
+omni_range = 877.0
+omni_attenuation = 3.03143
+
+[node name="OmniLight2" type="OmniLight" parent="OuterGimbal/InnerGimbal"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, -0.072, 0 )
+layers = 0
+light_energy = 0.6
+shadow_enabled = true
+shadow_bias = 0.01
+
+[node name="OmniLight3" type="OmniLight" parent="OuterGimbal/InnerGimbal"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, -0.072, 0 )
+layers = 0
+light_energy = 0.6
+shadow_enabled = true
+shadow_bias = 0.01
+
+[node name="Ambient" type="OmniLight" parent="OuterGimbal/InnerGimbal"]
+light_color = Color( 0.886275, 1, 0.984314, 1 )
+light_energy = 0.09
+light_indirect_energy = 0.0
+shadow_enabled = true
+shadow_bias = 2.59
+omni_range = 16384.0
+omni_attenuation = 1.14871

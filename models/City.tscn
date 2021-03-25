@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://models/city.gd" type="Script" id=1]
+[ext_resource path="res://models/city.glb" type="PackedScene" id=2]
+[ext_resource path="res://models/Level.tscn" type="PackedScene" id=3]
+[ext_resource path="res://models/Building.tscn" type="PackedScene" id=4]
+
+[node name="City" instance=ExtResource( 3 )]
+script = ExtResource( 1 )
+child_scene = ExtResource( 4 )
+
+[node name="city" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="CastToCamera" parent="." index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0121387, 0.28834, 0.00875616 )

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://GimbalCamera.tscn" type="PackedScene" id=1]
+[ext_resource path="res://main.gd" type="Script" id=2]
+[ext_resource path="res://models/Entrance.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+ambient_light_color = Color( 0.882353, 0.980392, 0.996078, 1 )
+ambient_light_energy = 0.3
+ambient_light_sky_contribution = 0.0
+adjustment_enabled = true
+adjustment_brightness = 1.42
+adjustment_contrast = 2.37
+adjustment_saturation = 1.29
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="Camera" parent="." instance=ExtResource( 1 )]
+
+[node name="World" type="Spatial" parent="."]
+
+[node name="OmniLight" type="OmniLight" parent="World"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87908, 0, 0 )
+visible = false
+omni_range = 3508.1
+omni_attenuation = 2.3128e-05
+
+[node name="Entrance" parent="World" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+[connection signal="collided" from="Camera" to="." method="_on_Camera_collided"]
+[connection signal="got_lonely" from="Camera" to="." method="_on_Camera_got_lonely"]
+[connection signal="moved" from="Camera" to="." method="_on_Camera_moved"]

@@ -40,15 +40,16 @@ func _physics_process(delta):
   var vel = $OuterGimbal.transform * ($OuterGimbal/InnerGimbal.transform * (direction.normalized() * movementSpeed));
   velocity = velocity.linear_interpolate(vel, acceleration*delta)
   
-  # Test whether we're going to hit a wall
-  if $OuterGimbal/InnerGimbal/Whiskers.get_overlapping_bodies().size() > 1: # Kinematic is always with us
-    emit_signal('collided', delta)
   
   if $ComfortZone.get_overlapping_bodies().size() <= 1: # Kinematic is always with us
     emit_signal('got_lonely', delta)
     
   var travel = velocity*delta
   if travel.length() > 0.001:
+    # Test whether we're going to hit a wall
+    if $OuterGimbal/InnerGimbal/Whiskers.get_overlapping_bodies().size() > 1: # Kinematic is always with us
+      emit_signal('collided', delta)
+
     var collision = move_and_collide(travel, true, true, true)
 
     if collision:

@@ -1,15 +1,20 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://models/city.gd" type="Script" id=1]
 [ext_resource path="res://models/city.glb" type="PackedScene" id=2]
 [ext_resource path="res://models/Level.tscn" type="PackedScene" id=3]
-[ext_resource path="res://models/Building.tscn" type="PackedScene" id=4]
+[ext_resource path="res://PlaceholderLevel.gd" type="Script" id=4]
+[ext_resource path="res://models/Building.tscn" type="PackedScene" id=5]
 
 [node name="City" instance=ExtResource( 3 )]
-script = ExtResource( 1 )
-child_scene = ExtResource( 4 )
+child_scenes = [  ]
 
 [node name="city" parent="." index="0" instance=ExtResource( 2 )]
 
-[node name="CastToCamera" parent="." index="1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0121387, 0.28834, 0.00875616 )
+[node name="ToBuilding" type="RayCast" parent="." index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000115123, 0.255701, -0.006 )
+script = ExtResource( 4 )
+scene = ExtResource( 5 )
+_target_scale = "0.01"
+_translation_x = "0.035145"
+_translation_y = "0.024392"
+_translation_z = "-0.006493"

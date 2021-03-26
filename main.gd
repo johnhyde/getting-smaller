@@ -23,7 +23,7 @@ func _physics_process(delta):
   if queuedZoom != 1:
     zoomOutVelocity = queuedZoom
     queuedZoom = 1
-    scale_world(Vector3(zoomOutVelocity, zoomOutVelocity, zoomOutVelocity))
+    scale_world(zoomOutVelocity)
 
 func get_smaller(delta):
   queuedZoom *= interpolate_scale(zoomOutSpeed, delta)

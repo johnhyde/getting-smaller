@@ -35,7 +35,8 @@ config/icon="res://icon.png"
 window/size/width=3072
 window/size/height=1800
 window/size/always_on_top=true
-window/dpi/allow_hidpi=true
+window/size/test_width=1280
+window/size/test_height=720
 
 [input]
 

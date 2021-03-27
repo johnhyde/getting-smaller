@@ -12,8 +12,6 @@ var scale_buffer = []
 var translation_buffer = Vector3(0, 0, 0)
 var static_body
 var basic_with_outline_mat = preload("res://basic.tres")
-#onready var starting_pos = translation / scale
-#onready var trimesh = create_trimesh_collision()
 
 
 # Called when the node enters the scene tree for the first time.
@@ -27,7 +25,6 @@ func _ready():
   timer.one_shot = true
   add_child(timer)
   timer.start()
-#  i_got_it = true
     
 func _all_grown_up():
   i_got_it = true

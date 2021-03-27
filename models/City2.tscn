@@ -5,8 +5,7 @@
 [ext_resource path="res://LinkToChild.gd" type="Script" id=4]
 [ext_resource path="res://models/Building.tscn" type="PackedScene" id=5]
 
-
-[node name="City" instance=ExtResource( 3 )]
+[node name="City2" instance=ExtResource( 3 )]
 child_scenes = [  ]
 
 [node name="city" parent="." index="0" instance=ExtResource( 2 )]

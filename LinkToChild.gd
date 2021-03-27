@@ -1,6 +1,6 @@
 extends RayCast
 
-class_name PlaceholderLevel
+class_name LinkToChild
 
 signal seen
 
@@ -25,12 +25,12 @@ func _physics_process(delta):
   cast_to = to_local(Vector3(0,0,0))
   if (is_colliding() && get_collider().name == "Camera"):
     enabled = false
-    print("loading level: ", scene._bundled.names[0])
     if !target_instance:
       target_instance = scene.instance()
       target_instance.scale = parent.scale * target_scale
       target_instance.translation = target_translation*parent.scale + parent.translation
       get_node("/root/Root/World").add_child(target_instance)
+      print("loading level: ", target_instance.name)
       target_instance.connect("was_unloaded", self, "_on_target_unloaded")
 
   if target_instance && !target_instance.i_got_it:

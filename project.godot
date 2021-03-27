@@ -15,13 +15,13 @@ _global_script_classes=[ {
 "path": "res://models/Level.gd"
 }, {
 "base": "RayCast",
-"class": "PlaceholderLevel",
+"class": "LinkToChild",
 "language": "GDScript",
-"path": "res://PlaceholderLevel.gd"
+"path": "res://LinkToChild.gd"
 } ]
 _global_script_class_icons={
 "Level": "",
-"PlaceholderLevel": ""
+"LinkToChild": ""
 }
 
 [application]

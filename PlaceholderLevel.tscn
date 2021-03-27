@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://PlaceholderLevel.gd" type="Script" id=2]
-
-[node name="PlaceholderLevel" type="RayCast"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.343256, -0.473155, -0.262031 )
-cast_to = Vector3( 0, 0, 0 )
-script = ExtResource( 2 )

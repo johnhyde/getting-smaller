@@ -16,12 +16,10 @@ var target_instance
 var parent
 
 func _ready():
-  enabled = true
-  if (!scene):
-    scene = load(scene_path)
   target_translation = Vector3(float(_translation_x), float(_translation_y), float(_translation_z))
   target_scale = float(_target_scale)
   parent = get_parent()
+  set_up_loader()
 
 func _physics_process(delta):
   cast_to = to_local(Vector3(0,0,0))
@@ -33,7 +31,17 @@ func _physics_process(delta):
       target_instance.scale = parent.scale * target_scale
       target_instance.translation = target_translation*parent.scale + parent.translation
       get_node("/root/Root/World").add_child(target_instance)
+      target_instance.connect("was_unloaded", self, "_on_target_unloaded")
 
   if target_instance && !target_instance.i_got_it:
     target_instance.scale = parent.scale * target_scale    
     target_instance.translation = target_translation*parent.scale + parent.translation
+
+func set_up_loader():
+  target_instance = null
+  enabled = true
+  if (!scene):
+    scene = load(scene_path)
+  
+func _on_target_unloaded():
+  set_up_loader()

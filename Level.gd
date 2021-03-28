@@ -21,7 +21,7 @@ class CustomSorters:
 func _ready():
   add_to_group('levels')
   static_body = find_node('static_collision')
-  var material = static_body.get_parent().set_surface_material(0, basic_with_outline_mat)
+  # var material = static_body.get_parent().set_surface_material(0, basic_with_outline_mat)
   var timer = Timer.new()
   timer.connect('timeout', self, '_all_grown_up')
   timer.set_wait_time( .1 )

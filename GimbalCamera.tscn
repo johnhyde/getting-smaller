@@ -76,8 +76,8 @@ shadow_enabled = true
 shadow_bias = 0.01
 
 [node name="Ambient" type="OmniLight" parent="OuterGimbal/InnerGimbal"]
-light_color = Color( 0.886275, 1, 0.984314, 1 )
-light_energy = 0.09
+light_color = Color( 0.854902, 0.980392, 0.964706, 1 )
+light_energy = 0.72
 light_indirect_energy = 0.0
 shadow_bias = 2.59
 omni_range = 16384.0

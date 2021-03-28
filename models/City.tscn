@@ -1,10 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://models/city.glb" type="PackedScene" id=2]
-[ext_resource path="res://models/Level.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Level.tscn" type="PackedScene" id=3]
 [ext_resource path="res://LinkToChild.gd" type="Script" id=4]
 [ext_resource path="res://models/Building.tscn" type="PackedScene" id=5]
-
 
 [node name="City" instance=ExtResource( 3 )]
 child_scenes = [  ]
@@ -19,3 +18,8 @@ _target_scale = "0.01"
 _translation_x = "0.035145"
 _translation_y = "0.024392"
 _translation_z = "-0.006493"
+
+[node name="LinkToParent" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.640317, 0 )
+scene_path = "res://models/Entrance.tscn"
+autoload_target = true

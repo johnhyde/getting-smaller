@@ -12,16 +12,28 @@ _global_script_classes=[ {
 "base": "Spatial",
 "class": "Level",
 "language": "GDScript",
-"path": "res://models/Level.gd"
+"path": "res://Level.gd"
 }, {
-"base": "RayCast",
+"base": "LinkToLevel",
 "class": "LinkToChild",
 "language": "GDScript",
 "path": "res://LinkToChild.gd"
+}, {
+"base": "RayCast",
+"class": "LinkToLevel",
+"language": "GDScript",
+"path": "res://LinkToLevel.gd"
+}, {
+"base": "LinkToLevel",
+"class": "LinkToParent",
+"language": "GDScript",
+"path": "res://LinkToParent.gd"
 } ]
 _global_script_class_icons={
 "Level": "",
-"LinkToChild": ""
+"LinkToChild": "",
+"LinkToLevel": "",
+"LinkToParent": ""
 }
 
 [application]

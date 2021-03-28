@@ -4,7 +4,7 @@
 [ext_resource path="res://models/building.glb" type="PackedScene" id=2]
 [ext_resource path="res://LinkToChild.gd" type="Script" id=4]
 
-[node name="Building" instance=ExtResource( 1 )]
+[node name="Building2" instance=ExtResource( 1 )]
 child_scenes = [  ]
 
 [node name="building" parent="." index="0" instance=ExtResource( 2 )]
@@ -29,4 +29,4 @@ _translation_z = "-1.663"
 
 [node name="LinkToParent" parent="." index="3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.42904, -1.29833, 0.396705 )
-scene_path = "res://models/City.tscn"
+scene_path = "res://models/City2.tscn"

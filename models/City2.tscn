@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
+[ext_resource path="res://models/Building2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://models/city.glb" type="PackedScene" id=2]
-[ext_resource path="res://models/Level.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Level.tscn" type="PackedScene" id=3]
 [ext_resource path="res://LinkToChild.gd" type="Script" id=4]
-[ext_resource path="res://models/Building.tscn" type="PackedScene" id=5]
 
 [node name="City2" instance=ExtResource( 3 )]
 child_scenes = [  ]
@@ -13,8 +13,13 @@ child_scenes = [  ]
 [node name="ToBuilding" type="RayCast" parent="." index="1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000115123, 0.255701, -0.006 )
 script = ExtResource( 4 )
-scene = ExtResource( 5 )
+scene = ExtResource( 1 )
 _target_scale = "0.01"
 _translation_x = "0.035145"
 _translation_y = "0.024392"
 _translation_z = "-0.006493"
+
+[node name="LinkToParent" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.785438, 0 )
+scene_path = "res://models/Building.tscn"
+autoload_target = true

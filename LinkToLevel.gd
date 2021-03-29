@@ -22,8 +22,8 @@ func set_target_instance(_target_instance):
 func _ready():
   parent = get_parent()
   scene = get_target_scene()
-  assert(scene, "Error: A link must have a scene or scene path")
-  if !target_instance:
+  # assert(scene, "Error: A link must have a scene or scene path")
+  if scene and !target_instance:
     set_up_loader()
 #    if autoload_target:
 #      load_target()
@@ -31,6 +31,8 @@ func _ready():
 #      set_up_loader()
 
 func should_load(test = false) -> bool:
+  if !scene:
+    return false
 #  if autoload_target:
 #    return true
   cast_to = to_local(Vector3(0,0,0))
@@ -53,8 +55,9 @@ func _physics_process(delta):
 
 func load_target():
   enabled = false
-  if !target_instance:
-    set_target_instance(get_target_scene().instance())
+  scene = get_target_scene()
+  if !target_instance and scene:
+    set_target_instance(scene.instance())
     update_target_transform()
     var link = get_complementary_link()
     link.set_target_instance(parent)

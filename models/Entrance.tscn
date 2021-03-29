@@ -6,7 +6,6 @@
 [ext_resource path="res://models/City.tscn" type="PackedScene" id=7]
 
 [node name="Entrance" instance=ExtResource( 1 )]
-child_scenes = [  ]
 
 [node name="entrance" parent="." index="0" instance=ExtResource( 2 )]
 
@@ -22,4 +21,3 @@ _translation_z = "-0.280422"
 
 [node name="LinkToParent" parent="." index="2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0960987, 0.0960117, 0.59009 )
-scene_path = "res://models/Building.tscn"

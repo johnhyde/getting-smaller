@@ -3,9 +3,10 @@
 [ext_resource path="res://LinkToParent.gd" type="Script" id=1]
 [ext_resource path="res://Level.gd" type="Script" id=2]
 
-[node name="Level" type="Spatial"]
+[node name="Level" type="Spatial" groups=[
+"levels",
+]]
 script = ExtResource( 2 )
-child_scenes = [ null ]
 
 [node name="LinkToParent" type="RayCast" parent="."]
 script = ExtResource( 1 )

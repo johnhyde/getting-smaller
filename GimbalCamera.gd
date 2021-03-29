@@ -4,10 +4,6 @@ signal collided(delta)
 signal got_lonely(delta)
 signal moved(travel)
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var mouseSensitivity = 20
 var movementSpeed = 1.5
 var velocity = Vector3(0,0,0)
@@ -53,7 +49,7 @@ func _physics_process(delta):
     var collision = move_and_collide(travel, true, true, true)
 
     if collision:
-      var col_pos = $OuterGimbal/InnerGimbal.to_local(collision.position)
+      State.last_hit_level_instance = collision.collider.owner.get_parent()
       travel = collision.travel
       travel = travel.slerp(travel.slide(collision.normal), 0)
       velocity = travel/delta
@@ -80,7 +76,14 @@ func _input(event):
     if event.relative.y != 0:
       $OuterGimbal/InnerGimbal.rotate_object_local(Vector3.RIGHT, -event.relative.y * mouseSensitivity / OS.get_screen_size().x)
       $OuterGimbal/InnerGimbal.rotation.x = clamp($OuterGimbal/InnerGimbal.rotation.x, deg2rad(-95), deg2rad(95))
+
+func save_state():
+  return {
+    "rotation_y": $OuterGimbal.rotation.y,
+    "rotation_x": $OuterGimbal/InnerGimbal.rotation.x,
+   }
   
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#  pass
+func load_state(state):
+  $OuterGimbal.rotation = Vector3(0, state.rotation_y, 0)
+  $OuterGimbal/InnerGimbal.rotation = Vector3(state.rotation_x, 0, 0)
+  pass

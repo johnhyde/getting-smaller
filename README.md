@@ -2,7 +2,8 @@
 It's a 3D exploration game where you zoom in and discover worlds within worlds
 
 ## Demo
-Feel free to download the demo in the builds directory. I've only built for Windows, since that's what people seem to have most often. If you want to play on Mac let me know and I'll make a build for you (or download the project and build it yourself).
+Feel free to try out the demo [here](/builds/index.html). There are some things that are still wonky there though, so you might prefer to download the .exe from the builds directory.
+I've only built for Windows, since that's what people seem to have most often. If you want to play on Mac let me know and I'll make a build for you (or download the project and build it yourself).
 
 ### Controls
 WASD for going forward/backward and left/right

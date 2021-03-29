@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/getting-smaller.png-5eda7de6fd8fd9a7badd0f31c2379cd2.stex"
+path="res://.import/getting-smaller.png-44e348af34a1a7f439d36c14eb0e8df5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://builds/getting-smaller.png"
-dest_files=[ "res://.import/getting-smaller.png-5eda7de6fd8fd9a7badd0f31c2379cd2.stex" ]
+source_file="res://getting-smaller.png"
+dest_files=[ "res://.import/getting-smaller.png-44e348af34a1a7f439d36c14eb0e8df5.stex" ]
 
 [params]
 
